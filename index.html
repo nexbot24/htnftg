@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTNFTG — How They Not Feeling This Gospel?</title>
+<meta name="description" content="HTNFTG — Gospel-inspired streetwear. Drop 01 now live. Up to 40% off sale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #fff; font-family: "Plus Jakarta Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3, h4 { font-family: "Plus Jakarta Sans", system-ui, sans-serif; }
+  a { color: #141312; text-decoration: none; }
+  a:hover { color: #141312; }
+  
+  .htn-sizes { opacity: 0; transition: opacity .2s ease }
+  .htn-card:hover .htn-sizes { opacity: 1 }
+  .htn-nav { transition: opacity .15s ease }
+  .htn-nav:hover { opacity: .55 }
+  .htn-box { transition: background .15s ease, color .15s ease }
+  .htn-box:hover { background: #141312; color: #fff }
+  .htn-mute { color: rgba(255,255,255,.62); transition: color .15s ease }
+  .htn-mute:hover { color: #fff }
+  
+  @keyframes htn-marq { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+  
+  .htn-track { display: flex; height: 100%; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; overscroll-behavior-x: contain }
+  .htn-track::-webkit-scrollbar { display: none }
+  .htn-track > div { flex: 0 0 100%; height: 100%; scroll-snap-align: center }
+  
+  .htn-dot { width: 5px; height: 5px; border-radius: 999px; background: rgba(255,255,255,.55); box-shadow: 0 0 0 1px rgba(20,19,18,.12); transition: background .2s ease; display: inline-block; font-style: normal; }
+  .htn-dot[data-on="1"] { background: #141312 }
+  
+  .htn-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border: 0; border-radius: 999px; background: rgba(255,255,255,.92); color: #141312; font: inherit; font-size: 17px; line-height: 1; display: grid; place-items: center; cursor: pointer; opacity: 0; transition: opacity .18s ease }
+  .htn-card:hover .htn-arrow { opacity: 1 }
+  
+  .htn-drawer { position: fixed; inset: 0; z-index: 60; background: #fff; display: none; flex-direction: column; transition: transform .28s ease }
+  
+  /* Hero video styling */
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Placeholder image slots */
+  .img-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #f0efef;
+    display: grid;
+    place-items: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #b5b2af;
+    text-align: center;
+    padding: 10px;
+  }
+
+  /* Responsive Utilities */
+  .htn-mobile { display: none !important }
+  .htn-desktop { display: flex !important }
+  
+  @media (hover: none) { 
+    .htn-arrow { display: none } 
+    .htn-sizes { opacity: 1 } 
+  }
+  
+  @media (max-width: 860px) {
+    .htn-desktop { display: none !important }
+    .htn-mobile { display: flex !important }
+    .htn-2col { grid-template-columns: repeat(2, minmax(0, 1fr)) !important }
+    .htn-heroFoot { flex-direction: column !important; align-items: stretch !important; gap: 14px !important }
+    .htn-heroCta { text-align: center }
+    .htn-lookRow { display: flex !important; gap: 10px !important; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin: 0 calc(-1 * clamp(14px, 2vw, 28px)); padding: 0 clamp(14px, 2vw, 28px) }
+    .htn-lookRow::-webkit-scrollbar { display: none }
+    .htn-lookRow > div { flex: 0 0 76%; scroll-snap-align: center }
+    .htn-bandFoot { flex-direction: column !important; align-items: flex-start !important; gap: 16px !important }
+  }
+</style>
+</head>
+<body>
+
+<div style="font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #141312; background: #fff; overflow-x: hidden">
+
+  <!-- Announcement bar -->
+  <div style="background: #141312; overflow: hidden; padding: 9px 0">
+    <div style="display: flex; width: max-content; animation: htn-marq 52s linear infinite; font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; font-variant-numeric: tabular-nums">
+      <span style="display: flex; gap: 46px; padding-right: 46px"><span>Drop 01 now live</span><span style="opacity: .45">&mdash;</span><span>Sale now on &mdash; up to 40% off</span><span style="opacity: .45">&mdash;</span><span>How they not feeling this gospel?</span><span style="opacity: .45">&mdash;</span><span>Drop 01 now live</span><span style="opacity: .45">&mdash;</span><span>Sale now on &mdash; up to 40% off</span><span style="opacity: .45">&mdash;</span><span>How they not feeling this gospel?</span><span style="opacity: .45">&mdash;</span></span>
+      <span style="display: flex; gap: 46px; padding-right: 46px"><span>Drop 01 now live</span><span style="opacity: .45">&mdash;</span><span>Sale now on &mdash; up to 40% off</span><span style="opacity: .45">&mdash;</span><span>How they not feeling this gospel?</span><span style="opacity: .45">&mdash;</span><span>Drop 01 now live</span><span style="opacity: .45">&mdash;</span><span>Sale now on &mdash; up to 40% off</span><span style="opacity: .45">&mdash;</span><span>How they not feeling this gospel?</span><span style="opacity: .45">&mdash;</span></span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header style="position: sticky; top: 0; z-index: 40; background: #fff; border-bottom: 1px solid #e6e4e4">
+    <div style="position: relative; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: clamp(12px, 2vw, 24px); padding: 0 clamp(14px, 2vw, 28px); height: 66px">
+      <!-- Mobile Menu Button -->
+      <button id="btn-menu" class="htn-mobile" type="button" aria-label="Menu" style="align-items: center; justify-content: flex-start; border: 0; background: transparent; padding: 0; width: 40px; height: 40px; cursor: pointer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141312" stroke-width="1.8" stroke-linecap="round"><path d="M3 7h18M3 12h18M3 17h18"></path></svg>
+      </button>
+      
+      <!-- Desktop Nav -->
+      <div class="htn-desktop" style="align-items: center; gap: clamp(12px, 1.8vw, 24px); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase">
+        <button id="btn-shop-toggle" type="button" aria-expanded="false" style="display: flex; align-items: center; gap: 8px; border: 0; background: transparent; padding: 0; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #141312">
+          <span>Shop</span>
+          <svg id="shop-caret" width="9" height="9" viewBox="0 0 12 12" fill="none" stroke="#141312" stroke-width="1.6" stroke-linecap="round" style="transform: rotate(0deg); transition: transform .2s ease"><path d="M2 4.5 6 8l4-3.5"></path></svg>
+        </button>
+        <a class="htn-nav" href="#collections">Collections</a>
+        <a class="htn-nav" href="#sale" style="color: #b68235">Sale</a>
+      </div>
+
+      <!-- Logo -->
+      <a href="#top" aria-label="HTNFTG" style="justify-self: center; display: flex; align-items: center; justify-content: center;">
+        <img src="assets/logo-mark.png" alt="HTNFTG" style="display: block; height: 40px; width: auto;">
+      </a>
+
+      <!-- Right Actions -->
+      <div style="display: flex; align-items: center; gap: clamp(10px, 1.4vw, 18px); justify-content: flex-end; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase">
+        <a class="htn-nav" href="#top" aria-label="Search" style="display: grid; place-items: center; width: 30px; height: 30px">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#141312" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
+        </a>
+        <a class="htn-nav htn-desktop" href="#signup" style="white-space: nowrap">Account</a>
+        <a class="htn-box htn-desktop" href="#sale" style="border: 1px solid #141312; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 10px 18px; white-space: nowrap; font-variant-numeric: tabular-nums">Bag &middot; 0</a>
+        <a class="htn-nav htn-mobile" href="#sale" aria-label="Bag" style="place-items: center; width: 40px; height: 40px; align-items: center; justify-content: center">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#141312" stroke-width="1.7" stroke-linecap="round"><path d="M5 8h14l-1.2 12H6.2z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Shop Dropdown (Desktop) -->
+    <div id="shop-dropdown" class="htn-desktop" style="overflow: hidden; max-height: 0px; transition: max-height .26s ease; border-top: 1px solid transparent; background: #fff">
+      <div style="display: flex; flex-wrap: wrap; gap: clamp(14px, 2.2vw, 34px); padding: 18px clamp(14px, 2vw, 28px) 22px; font-size: 11.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase">
+        <a class="htn-nav" href="#sale" style="white-space: nowrap">Hoodies</a>
+        <a class="htn-nav" href="#sale" style="white-space: nowrap">Tracksuits</a>
+        <a class="htn-nav" href="#sale" style="white-space: nowrap">T-shirts</a>
+        <a class="htn-nav" href="#sale" style="white-space: nowrap">Shorts</a>
+        <a class="htn-nav" href="#sale" style="white-space: nowrap">Bottoms</a>
+        <a class="htn-nav" href="#sale" style="white-space: nowrap; color: #7a7774">Shop all</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="menu-drawer" class="htn-drawer">
+    <div style="display: flex; align-items: center; justify-content: space-between; padding: 0 16px; height: 66px; border-bottom: 1px solid #e6e4e4">
+      <img src="assets/logo-mark.png" alt="HTNFTG" style="height: 34px; width: auto;">
+      <button id="btn-close-menu" type="button" aria-label="Close" style="border: 0; background: transparent; width: 44px; height: 44px; display: grid; place-items: center; cursor: pointer">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#141312" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+      </button>
+    </div>
+    <nav style="flex: 1; overflow-y: auto; padding: 18px 16px 24px; display: grid; gap: 2px; align-content: start">
+      <a href="#sale" style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; border-bottom: 1px solid #f0efef; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase">Hoodies<span style="font-size: 18px; font-weight: 400; color: #7a7774">&rsaquo;</span></a>
+      <a href="#sale" style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; border-bottom: 1px solid #f0efef; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase">Tracksuits<span style="font-size: 18px; font-weight: 400; color: #7a7774">&rsaquo;</span></a>
+      <a href="#sale" style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; border-bottom: 1px solid #f0efef; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase">T-shirts<span style="font-size: 18px; font-weight: 400; color: #7a7774">&rsaquo;</span></a>
+      <a href="#sale" style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; border-bottom: 1px solid #f0efef; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase">Shorts<span style="font-size: 18px; font-weight: 400; color: #7a7774">&rsaquo;</span></a>
+      <a href="#sale" style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; border-bottom: 1px solid #f0efef; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase">Bottoms<span style="font-size: 18px; font-weight: 400; color: #7a7774">&rsaquo;</span></a>
+      <a href="#sale" style="display: flex; align-items: center; justify-content: space-between; min-height: 56px; border-bottom: 1px solid #f0efef; font-size: 22px; font-weight: 800; letter-spacing: -0.01em; text-transform: uppercase; color: #b68235">Sale<span style="font-size: 18px; font-weight: 400; color: #b68235">&rsaquo;</span></a>
+      <a href="#collections" style="display: flex; align-items: center; min-height: 52px; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 10px">Collections</a>
+      <a href="#signup" style="display: flex; align-items: center; min-height: 52px; font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; border-top: 1px solid #f0efef">Account</a>
+    </nav>
+    <div style="padding: 16px; border-top: 1px solid #e6e4e4; display: flex; gap: 18px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #7a7774">
+      <a class="htn-nav" href="#signup">Instagram</a>
+      <a class="htn-nav" href="#signup">TikTok</a>
+      <a class="htn-nav" href="#signup">Shipping</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section id="top" style="position: relative; height: calc(100svh - 97px - clamp(20px, 2.8vw, 36px)); min-height: 420px; max-height: 920px; background: #d8d6d4; overflow: hidden; border-radius: 18px; margin: clamp(10px, 1.4vw, 18px) clamp(14px, 2vw, 28px) 0">
+    <!-- Using GIF hero -->
+    <img src="assets/hero-promo.gif" alt="HTNFTG Promo" class="hero-video">
+    <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,19,18,0.18) 0%, rgba(20,19,18,0) 38%, rgba(20,19,18,0.42) 100%); pointer-events: none"></div>
+    <div style="position: absolute; inset: 0; display: grid; place-items: center; padding: 0 24px; pointer-events: none">
+      <!-- Title text overlay instead of missing logo -->
+      <h1 style="margin: 0; font-size: clamp(28px, 4.5vw, 52px); font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; text-shadow: 0 2px 18px rgba(0,0,0,.35); text-align: center; line-height: 1.1">How They Not<br>Feeling This Gospel?</h1>
+    </div>
+    <div class="htn-heroFoot" style="position: absolute; inset: auto 0 0 0; padding: clamp(16px, 2.6vw, 36px); display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; pointer-events: none">
+      <div style="color: #fff; text-transform: uppercase; line-height: 1.08; text-shadow: 0 1px 14px rgba(0,0,0,.3)">
+        <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; margin-bottom: 10px; opacity: .8">Autumn 2026</div>
+        <div style="font-size: clamp(20px, 2.4vw, 32px); font-weight: 800; letter-spacing: -0.005em">Drop 01</div>
+        <div style="font-size: clamp(20px, 2.4vw, 32px); font-weight: 400; letter-spacing: -0.005em">Now live</div>
+      </div>
+      <a class="htn-box htn-heroCta" href="#sale" style="pointer-events: auto; background: #fff; color: #141312; font-size: 12px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 16px 40px; border-radius: 999px; white-space: nowrap">Shop now</a>
+    </div>
+  </section>
+
+  <!-- Sale Section -->
+  <section id="sale" style="padding: clamp(40px, 5vw, 72px) clamp(14px, 2vw, 28px) clamp(40px, 5vw, 72px)">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 20px; border-bottom: 1px solid #141312; padding-bottom: 14px; margin-bottom: clamp(18px, 2.2vw, 28px); font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; font-variant-numeric: tabular-nums">
+      <span>01 &mdash; On sale</span>
+      <span style="color: #7a7774">While stock lasts</span>
+    </div>
+    <div style="text-transform: uppercase; line-height: 1.12; margin-bottom: clamp(16px, 2vw, 26px)">
+      <div style="font-size: clamp(22px, 2.5vw, 32px); font-weight: 800; letter-spacing: -0.005em">On sale</div>
+      <div style="font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; letter-spacing: -0.005em">Up to 40% off</div>
+    </div>
+
+    <div id="shop" class="htn-2col" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: clamp(10px, 1.2vw, 18px)">
+      
+      <!-- Product 1 -->
+      <article class="htn-card" style="display: grid; gap: 13px">
+        <div style="position: relative; aspect-ratio: 5 / 6; background: #f0efef; border-radius: 14px; overflow: hidden">
+          <div class="htn-track" data-track="1">
+            <div><div class="img-placeholder">Gospel Script Hoodie — 01</div></div>
+            <div><div class="img-placeholder">Gospel Script Hoodie — 02</div></div>
+            <div><div class="img-placeholder">Gospel Script Hoodie — 03</div></div>
+          </div>
+          <span style="position: absolute; top: 14px; left: 14px; background: #141312; color: #fff; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; pointer-events: none; font-variant-numeric: tabular-nums">&minus;25%</span>
+          <button class="htn-arrow" type="button" data-arrow="-1" aria-label="Previous image" style="left: 10px">&lsaquo;</button>
+          <button class="htn-arrow" type="button" data-arrow="1" aria-label="Next image" style="right: 10px">&rsaquo;</button>
+          <div class="htn-sizes" style="position: absolute; left: 0; right: 0; bottom: 34px; display: flex; justify-content: center; gap: 13px; font-size: 12px; font-weight: 500; color: #3d3b39; pointer-events: none"><span>XS</span><span>S</span><span>M</span><span>L</span><span>XL</span><span>XXL</span></div>
+          <div class="htn-dots" style="position: absolute; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; gap: 6px; pointer-events: none">
+            <i class="htn-dot" data-on="1"></i><i class="htn-dot" data-on="0"></i><i class="htn-dot" data-on="0"></i>
+          </div>
+        </div>
+        <h3 style="margin: 0; font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.45">Gospel Script Hoodie</h3>
+        <div style="display: flex; gap: 10px; align-items: baseline; font-size: 13px; font-variant-numeric: tabular-nums"><span style="color: #7a7774; text-decoration: line-through">&pound;110.00</span><span style="font-weight: 600">&pound;82.50</span></div>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="htn-card" style="display: grid; gap: 13px">
+        <div style="position: relative; aspect-ratio: 5 / 6; background: #f0efef; border-radius: 14px; overflow: hidden">
+          <div class="htn-track" data-track="2">
+            <div><div class="img-placeholder">HTNFTG Monogram T-Shirt — 01</div></div>
+            <div><div class="img-placeholder">HTNFTG Monogram T-Shirt — 02</div></div>
+            <div><div class="img-placeholder">HTNFTG Monogram T-Shirt — 03</div></div>
+          </div>
+          <span style="position: absolute; top: 14px; left: 14px; background: #141312; color: #fff; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; pointer-events: none; font-variant-numeric: tabular-nums">&minus;30%</span>
+          <button class="htn-arrow" type="button" data-arrow="-1" aria-label="Previous image" style="left: 10px">&lsaquo;</button>
+          <button class="htn-arrow" type="button" data-arrow="1" aria-label="Next image" style="right: 10px">&rsaquo;</button>
+          <div class="htn-sizes" style="position: absolute; left: 0; right: 0; bottom: 34px; display: flex; justify-content: center; gap: 13px; font-size: 12px; font-weight: 500; color: #3d3b39; pointer-events: none"><span>XS</span><span>S</span><span>M</span><span>L</span><span>XL</span><span>XXL</span></div>
+          <div class="htn-dots" style="position: absolute; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; gap: 6px; pointer-events: none">
+            <i class="htn-dot" data-on="1"></i><i class="htn-dot" data-on="0"></i><i class="htn-dot" data-on="0"></i>
+          </div>
+        </div>
+        <h3 style="margin: 0; font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.45">HTNFTG Monogram T-Shirt</h3>
+        <div style="display: flex; gap: 10px; align-items: baseline; font-size: 13px; font-variant-numeric: tabular-nums"><span style="color: #7a7774; text-decoration: line-through">&pound;65.00</span><span style="font-weight: 600">&pound;45.50</span></div>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="htn-card" style="display: grid; gap: 13px">
+        <div style="position: relative; aspect-ratio: 5 / 6; background: #f0efef; border-radius: 14px; overflow: hidden">
+          <div class="htn-track" data-track="3">
+            <div><div class="img-placeholder">Bubble Logo Tracksuit — 01</div></div>
+            <div><div class="img-placeholder">Bubble Logo Tracksuit — 02</div></div>
+            <div><div class="img-placeholder">Bubble Logo Tracksuit — 03</div></div>
+          </div>
+          <span style="position: absolute; top: 14px; left: 14px; background: #141312; color: #fff; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; pointer-events: none; font-variant-numeric: tabular-nums">&minus;34%</span>
+          <button class="htn-arrow" type="button" data-arrow="-1" aria-label="Previous image" style="left: 10px">&lsaquo;</button>
+          <button class="htn-arrow" type="button" data-arrow="1" aria-label="Next image" style="right: 10px">&rsaquo;</button>
+          <div class="htn-sizes" style="position: absolute; left: 0; right: 0; bottom: 34px; display: flex; justify-content: center; gap: 13px; font-size: 12px; font-weight: 500; color: #3d3b39; pointer-events: none"><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+          <div class="htn-dots" style="position: absolute; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; gap: 6px; pointer-events: none">
+            <i class="htn-dot" data-on="1"></i><i class="htn-dot" data-on="0"></i><i class="htn-dot" data-on="0"></i>
+          </div>
+        </div>
+        <h3 style="margin: 0; font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.45">Bubble Logo Tracksuit</h3>
+        <div style="display: flex; gap: 10px; align-items: baseline; font-size: 13px; font-variant-numeric: tabular-nums"><span style="color: #7a7774; text-decoration: line-through">&pound;150.00</span><span style="font-weight: 600">&pound;99.00</span></div>
+      </article>
+
+      <!-- Product 4 -->
+      <article class="htn-card" style="display: grid; gap: 13px">
+        <div style="position: relative; aspect-ratio: 5 / 6; background: #f0efef; border-radius: 14px; overflow: hidden">
+          <div class="htn-track" data-track="4">
+            <div><div class="img-placeholder">Question Mark Shorts — 01</div></div>
+            <div><div class="img-placeholder">Question Mark Shorts — 02</div></div>
+            <div><div class="img-placeholder">Question Mark Shorts — 03</div></div>
+          </div>
+          <span style="position: absolute; top: 14px; left: 14px; background: #141312; color: #fff; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 7px 12px; border-radius: 999px; pointer-events: none; font-variant-numeric: tabular-nums">&minus;40%</span>
+          <button class="htn-arrow" type="button" data-arrow="-1" aria-label="Previous image" style="left: 10px">&lsaquo;</button>
+          <button class="htn-arrow" type="button" data-arrow="1" aria-label="Next image" style="right: 10px">&rsaquo;</button>
+          <div class="htn-sizes" style="position: absolute; left: 0; right: 0; bottom: 34px; display: flex; justify-content: center; gap: 13px; font-size: 12px; font-weight: 500; color: #3d3b39; pointer-events: none"><span>XS</span><span>S</span><span>M</span><span>L</span><span>XL</span></div>
+          <div class="htn-dots" style="position: absolute; left: 0; right: 0; bottom: 14px; display: flex; justify-content: center; gap: 6px; pointer-events: none">
+            <i class="htn-dot" data-on="1"></i><i class="htn-dot" data-on="0"></i><i class="htn-dot" data-on="0"></i>
+          </div>
+        </div>
+        <h3 style="margin: 0; font-size: 12.5px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.45">Question Mark Shorts</h3>
+        <div style="display: flex; gap: 10px; align-items: baseline; font-size: 13px; font-variant-numeric: tabular-nums"><span style="color: #7a7774; text-decoration: line-through">&pound;55.00</span><span style="font-weight: 600">&pound;33.00</span></div>
+      </article>
+    </div>
+
+    <div style="display: flex; justify-content: center; margin-top: clamp(28px, 3.6vw, 48px)">
+      <a class="htn-box" href="#shop" style="border: 1px solid #141312; border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 18px 56px">Shop all sale</a>
+    </div>
+  </section>
+
+  <!-- Manifesto -->
+  <section style="background: #141312; color: #fff; border-radius: 18px; margin: 0 clamp(14px, 2vw, 28px) clamp(40px, 5vw, 72px); padding: clamp(40px, 5.4vw, 80px) clamp(20px, 3.4vw, 56px)">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(28px, 4vw, 64px); align-items: start">
+      <div>
+        <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 18px; font-variant-numeric: tabular-nums">The question</div>
+        <p style="margin: 0; font-size: clamp(26px, 3.4vw, 50px); font-weight: 400; line-height: 1.08; letter-spacing: -0.015em; text-wrap: pretty">How they not<br><span style="font-weight: 800">feeling this gospel?</span></p>
+      </div>
+      <div style="display: grid; gap: 18px; max-width: 54ch">
+        <p style="margin: 0; font-size: 15px; line-height: 1.75; color: rgba(255,255,255,.78)">Heavyweight cotton, quiet embroidery, nothing that needs explaining. Every drop is cut in a single run, finished in London, and then it is gone.</p>
+        <p style="margin: 0; font-size: 15px; line-height: 1.75; color: rgba(255,255,255,.78)">The question on the label is not rhetorical. It is the invitation.</p>
+        <a class="htn-box" href="#collections" style="justify-self: start; margin-top: 6px; border: 1px solid #fff; border-radius: 999px; color: #fff; font-size: 11.5px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 15px 34px">Read the story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop the look -->
+  <section style="padding: 0 clamp(14px, 2vw, 28px) clamp(40px, 5vw, 72px)">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 20px; border-bottom: 1px solid #141312; padding-bottom: 14px; margin-bottom: clamp(18px, 2.2vw, 28px); font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; font-variant-numeric: tabular-nums">
+      <span>02 &mdash; Worn</span>
+      <span style="color: #7a7774">Shot in Peckham</span>
+    </div>
+    <div style="text-transform: uppercase; line-height: 1.12; margin-bottom: clamp(16px, 2vw, 26px)">
+      <div style="font-size: clamp(22px, 2.5vw, 32px); font-weight: 800; letter-spacing: -0.005em">Shop the look</div>
+      <div style="font-size: clamp(22px, 2.5vw, 32px); font-weight: 400; letter-spacing: -0.005em">Styled three ways</div>
+    </div>
+    <div class="htn-lookRow" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: clamp(10px, 1.2vw, 18px)">
+      <div style="position: relative; aspect-ratio: 3 / 4; background: #f0efef; border-radius: 14px; overflow: hidden">
+        <img src="assets/look-01.png" alt="Look 01" style="width: 100%; height: 100%; object-fit: cover;">
+        <a class="htn-box" href="#shop" aria-label="Shop look 01" style="position: absolute; right: 0; bottom: 0; width: 52px; height: 52px; display: grid; place-items: center; background: #fff; font-size: 22px; font-weight: 400; line-height: 1; border-radius: 999px; margin: 14px">+</a>
+      </div>
+      <div style="position: relative; aspect-ratio: 3 / 4; background: #f0efef; border-radius: 14px; overflow: hidden">
+        <img src="assets/look-03.jpg" alt="Look 03" style="width: 100%; height: 100%; object-fit: cover;">
+        <a class="htn-box" href="#shop" aria-label="Shop look 03" style="position: absolute; right: 0; bottom: 0; width: 52px; height: 52px; display: grid; place-items: center; background: #fff; font-size: 22px; font-weight: 400; line-height: 1; border-radius: 999px; margin: 14px">+</a>
+      </div>
+      <div style="position: relative; aspect-ratio: 3 / 4; background: #f0efef; border-radius: 14px; overflow: hidden">
+        <img src="assets/look-04.png" alt="Look 04" style="width: 100%; height: 100%; object-fit: cover;">
+        <a class="htn-box" href="#shop" aria-label="Shop look 04" style="position: absolute; right: 0; bottom: 0; width: 52px; height: 52px; display: grid; place-items: center; background: #fff; font-size: 22px; font-weight: 400; line-height: 1; border-radius: 999px; margin: 14px">+</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collections Heading -->
+  <div style="padding: 0 clamp(14px, 2vw, 28px) clamp(18px, 2.2vw, 28px)">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 20px; border-bottom: 1px solid #141312; padding-bottom: 14px; font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; font-variant-numeric: tabular-nums">
+      <span>03 &mdash; Collections</span>
+      <span style="color: #7a7774">Two live</span>
+    </div>
+  </div>
+
+  <!-- Collections -->
+  <section id="collections" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: clamp(10px, 1.2vw, 18px); padding: 0 clamp(14px, 2vw, 28px) clamp(40px, 5vw, 72px)">
+    <article style="position: relative; aspect-ratio: 4 / 5; background: #d8d6d4; border-radius: 18px; overflow: hidden">
+      <img src="assets/collection-01.png" alt="Drop 01 — Gospel" style="width: 100%; height: 100%; object-fit: cover;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,19,18,0) 45%, rgba(20,19,18,0.5) 100%); pointer-events: none"></div>
+      <div class="htn-bandFoot" style="position: absolute; inset: auto 0 0 0; padding: clamp(18px, 2.4vw, 34px); display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; flex-wrap: wrap; pointer-events: none">
+        <div style="text-transform: uppercase; line-height: 1.12; color: #fff">
+          <div style="font-size: clamp(20px, 2.2vw, 30px); font-weight: 800">Drop 01</div>
+          <div style="font-size: clamp(20px, 2.2vw, 30px); font-weight: 400">Gospel</div>
+        </div>
+        <a class="htn-box" href="#shop" style="pointer-events: auto; background: #fff; color: #141312; font-size: 11.5px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 15px 32px; border-radius: 999px">Shop</a>
+      </div>
+    </article>
+    <article style="position: relative; aspect-ratio: 4 / 5; background: #d8d6d4; border-radius: 18px; overflow: hidden">
+      <img src="assets/collection-02.jpg" alt="Collection 2" style="width: 100%; height: 100%; object-fit: cover;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,19,18,0) 45%, rgba(20,19,18,0.5) 100%); pointer-events: none"></div>
+      <div class="htn-bandFoot" style="position: absolute; inset: auto 0 0 0; padding: clamp(18px, 2.4vw, 34px); display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; flex-wrap: wrap; pointer-events: none">
+        <div style="text-transform: uppercase; line-height: 1.12; color: #fff">
+          <div style="font-size: clamp(20px, 2.2vw, 30px); font-weight: 800">Essentials</div>
+          <div style="font-size: clamp(20px, 2.2vw, 30px); font-weight: 400">Year round</div>
+        </div>
+        <a class="htn-box" href="#shop" style="pointer-events: auto; background: #fff; color: #141312; font-size: 11.5px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 15px 32px; border-radius: 999px">Shop</a>
+      </div>
+    </article>
+  </section>
+
+  <!-- Campaign -->
+  <section style="position: relative; background: #d8d6d4; border-radius: 18px; overflow: hidden; margin: 0 clamp(14px, 2vw, 28px) clamp(10px, 1.4vw, 18px)">
+    <div style="position: relative; height: min(78vh, 820px); min-height: 420px">
+      <img src="assets/campaign.jpg" alt="Campaign 01" style="width: 100%; height: 100%; object-fit: cover;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,19,18,0) 55%, rgba(20,19,18,0.44) 100%); pointer-events: none"></div>
+      <div class="htn-bandFoot" style="position: absolute; inset: auto 0 0 0; padding: clamp(20px, 3.4vw, 46px); display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; pointer-events: none">
+        <div style="color: #fff; text-transform: uppercase; line-height: 1.12; max-width: 24ch">
+          <div style="font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; margin-bottom: 12px; opacity: .8; font-variant-numeric: tabular-nums">04 &mdash; Campaign</div>
+          <div style="font-size: clamp(22px, 2.8vw, 38px); font-weight: 800">Campaign 01</div>
+          <div style="font-size: clamp(22px, 2.8vw, 38px); font-weight: 400">How they not feeling this gospel?</div>
+        </div>
+        <a class="htn-box" href="#shop" style="pointer-events: auto; background: #fff; color: #141312; font-size: 12px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 18px 40px; border-radius: 999px">Discover</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Congregation Heading -->
+  <div style="padding: clamp(28px, 3.4vw, 48px) clamp(14px, 2vw, 28px) clamp(16px, 2vw, 24px); display: flex; align-items: baseline; justify-content: space-between; gap: 20px; border-bottom: 1px solid #141312; margin: 0 clamp(14px, 2vw, 28px); font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; font-variant-numeric: tabular-nums">
+    <span>05 &mdash; The congregation</span>
+    <a class="htn-nav" href="#signup" style="color: #7a7774">@htnftg</a>
+  </div>
+
+  <!-- Photo Grid -->
+  <section class="htn-2col" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: clamp(10px, 1.2vw, 18px); padding: clamp(16px, 2vw, 24px) clamp(14px, 2vw, 28px) clamp(28px, 3.4vw, 48px)">
+    <div style="aspect-ratio: 1 / 1; background: #f0efef; border-radius: 14px; overflow: hidden"><img src="assets/congregation-01.png" alt="Congregation 1" style="width: 100%; height: 100%; object-fit: cover;"></div>
+    <div style="aspect-ratio: 1 / 1; background: #f0efef; border-radius: 14px; overflow: hidden"><img src="assets/congregation-02.jpg" alt="Congregation 2" style="width: 100%; height: 100%; object-fit: cover;"></div>
+    <div style="aspect-ratio: 1 / 1; background: #f0efef; border-radius: 14px; overflow: hidden"><img src="assets/congregation-03.jpg" alt="Congregation 3" style="width: 100%; height: 100%; object-fit: cover;"></div>
+    <div style="aspect-ratio: 1 / 1; background: #f0efef; border-radius: 14px; overflow: hidden"><img src="assets/congregation-04.jpg" alt="Congregation 4" style="width: 100%; height: 100%; object-fit: cover;"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="signup" style="background: #141312; color: #fff; border-radius: 18px; margin: 0 clamp(14px, 2vw, 28px) clamp(14px, 2vw, 28px); overflow: hidden">
+    <div style="padding: clamp(40px, 5.2vw, 76px) clamp(14px, 2vw, 28px) 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: clamp(28px, 3.6vw, 56px); align-items: start">
+      <div style="display: grid; gap: 20px">
+        <img src="assets/logo.png" alt="HTNFTG" style="width: 172px; filter: invert(1);">
+        <div style="display: flex; gap: 16px; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase">
+          <a class="htn-mute" href="#top">Instagram</a>
+          <a class="htn-mute" href="#top">TikTok</a>
+          <a class="htn-mute" href="#top">YouTube</a>
+        </div>
+      </div>
+      <div style="display: grid; gap: 16px; max-width: 40ch">
+        <div>
+          <h3 style="margin: 0 0 8px; font-size: clamp(18px, 2vw, 24px); font-weight: 800; text-transform: uppercase; color: #fff">Stay in the know</h3>
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: rgba(255,255,255,.62)">First look at drops and restocks. Nothing else.</p>
+        </div>
+        <form style="display: flex; flex-wrap: wrap" onsubmit="event.preventDefault()">
+          <input type="email" placeholder="Email address" style="flex: 1 1 170px; height: 48px; padding: 0 18px; border: 1px solid rgba(255,255,255,.3); border-radius: 999px 0 0 999px; background: transparent; color: #fff; font-family: inherit; font-size: 13px; outline: none">
+          <button type="submit" style="height: 48px; background: #fff; color: #141312; border: 0; font-family: inherit; font-size: 11.5px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; padding: 0 30px; cursor: pointer; border-radius: 0 999px 999px 0">Sign up</button>
+        </form>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(105px, 1fr)); gap: 24px">
+        <div style="display: grid; gap: 10px; font-size: 12.5px">
+          <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 4px">Shop</div>
+          <a class="htn-mute" href="#shop">Hoodies</a>
+          <a class="htn-mute" href="#shop">Tracksuits</a>
+          <a class="htn-mute" href="#shop">T-shirts</a>
+          <a class="htn-mute" href="#shop">Shorts</a>
+          <a class="htn-mute" href="#shop">Bottoms</a>
+        </div>
+        <div style="display: grid; gap: 10px; font-size: 12.5px">
+          <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #fff; margin-bottom: 4px">Help</div>
+          <a class="htn-mute" href="#top">Shipping</a>
+          <a class="htn-mute" href="#top">Returns</a>
+          <a class="htn-mute" href="#top">Sizing</a>
+          <a class="htn-mute" href="#top">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin: clamp(30px, 4vw, 56px) clamp(14px, 2vw, 28px) 0; border-top: 1px solid rgba(255,255,255,.18); padding: 16px 0 24px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 10.5px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,.52)">
+      <span style="font-variant-numeric: tabular-nums">&copy; 2026 HTNFTG</span>
+      <span>United Kingdom &nbsp;/&nbsp; &pound; GBP</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Menu logic
+    const menuBtn = document.getElementById('btn-menu');
+    const closeMenuBtn = document.getElementById('btn-close-menu');
+    const drawer = document.getElementById('menu-drawer');
+    
+    if (menuBtn && closeMenuBtn && drawer) {
+      menuBtn.addEventListener('click', () => drawer.style.display = 'flex');
+      closeMenuBtn.addEventListener('click', () => drawer.style.display = 'none');
+      // close menu when clicking links
+      drawer.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => drawer.style.display = 'none');
+      });
+    }
+
+    // Shop dropdown logic
+    const shopBtn = document.getElementById('btn-shop-toggle');
+    const shopDropdown = document.getElementById('shop-dropdown');
+    const shopCaret = document.getElementById('shop-caret');
+    let shopOpen = false;
+
+    if (shopBtn && shopDropdown && shopCaret) {
+      shopBtn.addEventListener('click', () => {
+        shopOpen = !shopOpen;
+        shopBtn.setAttribute('aria-expanded', shopOpen);
+        shopDropdown.style.maxHeight = shopOpen ? '120px' : '0px';
+        shopDropdown.style.borderTopColor = shopOpen ? '#e6e4e4' : 'transparent';
+        shopCaret.style.transform = shopOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
+    }
+
+    // Carousel logic
+    const onScroll = (e) => {
+      const t = e.target;
+      if (!t.classList || !t.classList.contains("htn-track")) return;
+      const i = Math.round(t.scrollLeft / Math.max(1, t.clientWidth));
+      const dots = t.parentElement.querySelectorAll(".htn-dot");
+      dots.forEach((d, n) => d.setAttribute("data-on", n === i ? "1" : "0"));
+    };
+    
+    const onClick = (e) => {
+      const btn = e.target.closest && e.target.closest(".htn-arrow");
+      if (!btn) return;
+      const track = btn.parentElement.querySelector(".htn-track");
+      if (track) track.scrollBy({ left: Number(btn.dataset.arrow) * track.clientWidth, behavior: "smooth" });
+    };
+
+    document.addEventListener("scroll", onScroll, true);
+    document.addEventListener("click", onClick, true);
+  });
+</script>
+
+</body>
+</html>
